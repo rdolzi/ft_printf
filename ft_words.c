@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+//??
 int ft_strlen(char *s)
 {
 	int i;
@@ -22,18 +23,20 @@ int ft_strlen(char *s)
 	return (i);
 }
 
-void ft_printchar(char c, int *sum, int *i)
+void ft_printchar(char c, int *sum)
 {
 	write(1, &c, 1);
 	(*sum)++;
-	(*i)++;
 }
 
-void ft_printstr(char *str, int *sum, int *i)
+void ft_printstr(char *str, int *sum)
 {
 	int k;
 
 	k = 0;
 	while (str[k])
-		ft_printchar(str[k++], sum, i);
+	{
+		ft_printchar(str[k], sum);
+		k++;
+	}
 }

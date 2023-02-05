@@ -7,7 +7,7 @@
 
 int ft_printf(const char *string, ...);
 int ft_strlen(char *s);
-void ft_printchar(char c, int *sum, int *i);
-void ft_printstr(char *str, int *sum, int *i);
+void ft_printchar(char c, int *sum);
+void ft_printstr(char *str, int *sum);
 
 #endif

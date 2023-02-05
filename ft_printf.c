@@ -34,18 +34,21 @@ void ft_print_check(char c, va_list *list, int *sum, int *i)
 	int d;
 	if (c == '%')
 	{
-		write(1, "%", 1);
-		*sum += 1;
+		ft_printchar('%', sum);
 	}
 	else if (c == 's')
 	{
-		str = va_arg(*list, char *);
+		ft_printstr(va_arg(*list, char *), sum);
+
+		/*str = va_arg(*list, char *);
 		len = ft_strlen(str);
 		write(1, str, len);
-		*sum += len;
+		*sum += len;*/
 	}
 	else if (c == 'c')
-		ft_printchar(va_arg(*list, int), sum, i);
+	{
+		ft_printchar(va_arg(*list, int), sum);
+	}
 	else
 		printf("+\n");
 }
@@ -63,11 +66,17 @@ int ft_printf(const char *string, ...)
 	{
 		if (string[i] == '%')
 		{
+
 			ft_print_check(string[++i], &list, &sum, &i);
+			printf("|if(i):%d| \n", i);
 			i++;
 		}
 		else
-			ft_printchar(string[i], &sum, &i);
+		{
+			ft_printchar((char)string[i], &sum);
+			printf("|else(i):%d| \n", i);
+			i++;
+		}
 	}
 	printf("||sum:%d||i:%d|| \n", sum, i);
 	va_end(list);
@@ -76,5 +85,6 @@ int ft_printf(const char *string, ...)
 
 int main()
 {
-	ft_printf("%s", "ciao");
+	char a[] = "ciao";
+	ft_printf("%%%cciao", 'K');
 }
