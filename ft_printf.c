@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdolzi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:18:38 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/04 15:04:04 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/05 18:50:02 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,13 @@ void ft_print_check(char c, va_list *list, int *sum, int *i)
 	char *str;
 	int d;
 	if (c == '%')
-	{
 		ft_printchar('%', sum);
-	}
 	else if (c == 's')
-	{
 		ft_printstr(va_arg(*list, char *), sum);
-
-		/*str = va_arg(*list, char *);
-		len = ft_strlen(str);
-		write(1, str, len);
-		*sum += len;*/
-	}
 	else if (c == 'c')
-	{
 		ft_printchar(va_arg(*list, int), sum);
-	}
+	else if (c == 'd' || c == 'i')
+		ft_printnbr(va_arg(*list, int), sum);
 	else
 		printf("+\n");
 }
@@ -85,6 +76,8 @@ int ft_printf(const char *string, ...)
 
 int main()
 {
+	int b = -123;
 	char a[] = "ciao";
-	ft_printf("%%%cciao", 'K');
+	// ft_printf("%%%cciao", 'K');
+	ft_printf("%d  %i", b, b);
 }
