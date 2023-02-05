@@ -14,47 +14,47 @@
 #include <stdio.h>
 
 /*
- * se 
+ * se
  *printf("ciao %  ciao");
 stampare: ciao   ciao (con 3 spazi)
 
 in generale % non viene contato come numero
 
-se 
+se
 printf("ciao %m  ciao"); ( anche nel caso %E)
 
 stampare: ciao E  ciao
 
 */
 
-void	ft_print_check(char c, va_list *list, int *sum, int *i)
+void ft_print_check(char c, va_list *list, int *sum, int *i)
 {
-	int		len;
-	char	*str;
-	int 	d;
+	int len;
+	char *str;
+	int d;
 	if (c == '%')
 	{
-		write(1,"%",1);
-		*sum +=1;
+		write(1, "%", 1);
+		*sum += 1;
 	}
 	else if (c == 's')
 	{
-		str = va_arg(*list,char *);
+		str = va_arg(*list, char *);
 		len = ft_strlen(str);
-			write(1,str,len);
+		write(1, str, len);
 		*sum += len;
 	}
 	else if (c == 'c')
-		ft_printchar(list, sum, i);
+		ft_printchar(va_arg(*list, int), sum, i);
 	else
-	printf("+\n");
+		printf("+\n");
 }
 
-int	ft_printf(const char *string, ...)
+int ft_printf(const char *string, ...)
 {
-	int		i;
-	int		sum;
-	va_list	list;
+	int i;
+	int sum;
+	va_list list;
 
 	i = 0;
 	sum = 0;
@@ -67,20 +67,14 @@ int	ft_printf(const char *string, ...)
 			i++;
 		}
 		else
-		{
-			write(1, &string[i], 1);
-			sum++;
-			i++;
-		}
+			ft_printchar(string[i], &sum, &i);
 	}
-	printf("||sum:%d|| \n", sum);
+	printf("||sum:%d||i:%d|| \n", sum, i);
 	va_end(list);
 	return (sum);
 }
 
-
-
 int main()
 {
-	ft_printf("%c",'c');
+	ft_printf("%s", "ciao");
 }
