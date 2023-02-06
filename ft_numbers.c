@@ -6,7 +6,7 @@
 /*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 18:19:27 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/06 11:52:54 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/06 14:33:15 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,16 @@ void ft_unsigned_printnbr(unsigned int nbr, int *sum)
     if (nbr > 9)
         ft_unsigned_printnbr(nbr / 10, sum);
     ft_printchar((nbr % 10) + '0', sum);
+}
+
+void ft_hexadecimal_printnbr(unsigned int nbr, int *sum, char c)
+{
+    char *base_char;
+    if (c == 'x')
+        base_char = "0123456789abcdef";
+    else
+        base_char = "0123456789ABCDEF";
+    if (nbr > 15)
+        ft_hexadecimal_printnbr(nbr / 16, sum, c);
+    ft_printchar(base_char[nbr % 16], sum);
 }

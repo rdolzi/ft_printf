@@ -6,7 +6,7 @@
 /*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:18:38 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/06 12:13:34 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/06 14:32:17 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,9 @@ void ft_print_check(char c, va_list *list, int *sum, int *i)
 	else if (c == 'd' || c == 'i')
 		ft_printnbr(va_arg(*list, int), sum);
 	else if (c == 'u')
-	{
 		ft_unsigned_printnbr(va_arg(*list, unsigned int), sum);
-		// printf("\n\n%u\n\n ", va_arg(*list, unsigned int));
-	}
+	else if (c == 'x' || c == 'X')
+		ft_hexadecimal_printnbr(va_arg(*list, unsigned int), sum, c);
 	else
 		printf("+\n");
 }
@@ -86,6 +85,7 @@ int main()
 	// ft_printf("%%%cciao", 'K');
 	// ft_printf("%d  %i", b, b);
 	// ft_printf("%s", NULL);
-	int d = -37;
-	ft_printf("%d", d);
+	unsigned int d = -999;
+	ft_printf("%X", d);
+	printf("\n\n\nprintf>%X", d);
 }
