@@ -12,5 +12,6 @@ void ft_printstr(char *str, int *sum);
 void ft_printnbr(int nbr, int *sum);
 void ft_unsigned_printnbr(unsigned int nbr, int *sum);
 void ft_hexadecimal_printnbr(unsigned int nbr, int *sum, char c);
+void ft_pointer(uintptr_t nbr, int *sum);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:18:38 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/06 14:32:17 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/06 15:10:08 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,14 @@ void ft_print_check(char c, va_list *list, int *sum, int *i)
 		ft_unsigned_printnbr(va_arg(*list, unsigned int), sum);
 	else if (c == 'x' || c == 'X')
 		ft_hexadecimal_printnbr(va_arg(*list, unsigned int), sum, c);
-	else
-		printf("+\n");
+	else if (c == 'p')
+	{
+		ft_printchar('0', sum);
+		ft_printchar('x', sum);
+		ft_pointer(va_arg(*list, uintptr_t), sum);
+	}
+	// else
+	//	printf("+\n");
 }
 
 int ft_printf(const char *string, ...)
@@ -85,7 +91,12 @@ int main()
 	// ft_printf("%%%cciao", 'K');
 	// ft_printf("%d  %i", b, b);
 	// ft_printf("%s", NULL);
-	unsigned int d = -999;
-	ft_printf("%X", d);
-	printf("\n\n\nprintf>%X", d);
+	unsigned int d = 16;
+	char c = 'c';
+	long e = 140701873931679;
+	// printf("%lx", e);
+	//  printf("\n\n\nprintf>%X", d);
+
+	printf("\n\n\np>%p,u>%lx", &c, (uintptr_t)&c);
+	ft_printf("\nft_p>%p", &c);
 }
