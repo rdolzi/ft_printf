@@ -6,7 +6,7 @@
 /*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:18:38 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/06 11:50:02 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/06 12:13:34 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void ft_print_check(char c, va_list *list, int *sum, int *i)
 		ft_printnbr(va_arg(*list, int), sum);
 	else if (c == 'u')
 	{
-		// ft_printnbr(va_arg(*list, unsigned int), sum);
-		printf("\n\n%u\n\n ", va_arg(*list, unsigned int));
+		ft_unsigned_printnbr(va_arg(*list, unsigned int), sum);
+		// printf("\n\n%u\n\n ", va_arg(*list, unsigned int));
 	}
 	else
 		printf("+\n");
