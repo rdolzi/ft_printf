@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_words.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdolzi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:14:28 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/04 15:37:37 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/05 20:40:21 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ void ft_printstr(char *str, int *sum)
 	int k;
 
 	k = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		(*sum) += 6;
+		return;
+	}
 	while (str[k])
 	{
 		ft_printchar(str[k], sum);

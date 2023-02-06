@@ -6,7 +6,7 @@
 /*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:18:38 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/05 18:50:02 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/06 11:50:02 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ void ft_print_check(char c, va_list *list, int *sum, int *i)
 		ft_printchar(va_arg(*list, int), sum);
 	else if (c == 'd' || c == 'i')
 		ft_printnbr(va_arg(*list, int), sum);
+	else if (c == 'u')
+	{
+		// ft_printnbr(va_arg(*list, unsigned int), sum);
+		printf("\n\n%u\n\n ", va_arg(*list, unsigned int));
+	}
 	else
 		printf("+\n");
 }
@@ -79,5 +84,8 @@ int main()
 	int b = -123;
 	char a[] = "ciao";
 	// ft_printf("%%%cciao", 'K');
-	ft_printf("%d  %i", b, b);
+	// ft_printf("%d  %i", b, b);
+	// ft_printf("%s", NULL);
+	int d = -37;
+	ft_printf("%d", d);
 }
