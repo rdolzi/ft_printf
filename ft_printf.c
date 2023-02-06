@@ -6,7 +6,7 @@
 /*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:18:38 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/06 18:53:25 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/06 19:07:52 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ stampare: ciao E  ciao
 
 */
 
-void ft_print_check(char c, va_list *list, int *sum)
+void	ft_print_check(char c, va_list *list, int *sum)
 {
 	if (c == '%')
 		ft_printchar('%', sum);
@@ -47,15 +47,13 @@ void ft_print_check(char c, va_list *list, int *sum)
 		ft_printchar('x', sum);
 		ft_pointer(va_arg(*list, uintptr_t), sum);
 	}
-	// else
-	//	printf("+\n");
 }
 
-int ft_printf(const char *string, ...)
+int	ft_printf(const char *string, ...)
 {
-	int i;
-	int sum;
-	va_list list;
+	int		i;
+	int		sum;
+	va_list	list;
 
 	i = 0;
 	sum = 0;
@@ -66,17 +64,14 @@ int ft_printf(const char *string, ...)
 		{
 
 			ft_print_check(string[++i], &list, &sum);
-			printf("|if(i):%d| \n", i);
 			i++;
 		}
 		else
 		{
 			ft_printchar((char)string[i], &sum);
-			printf("|else(i):%d| \n", i);
 			i++;
 		}
 	}
-	printf("||sum:%d||i:%d|| \n", sum, i);
 	va_end(list);
 	return (sum);
 }
