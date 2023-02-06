@@ -6,7 +6,7 @@
 /*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:18:38 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/06 15:10:08 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/06 18:53:25 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,8 @@ stampare: ciao E  ciao
 
 */
 
-void ft_print_check(char c, va_list *list, int *sum, int *i)
+void ft_print_check(char c, va_list *list, int *sum)
 {
-	int len;
-	char *str;
-	int d;
 	if (c == '%')
 		ft_printchar('%', sum);
 	else if (c == 's')
@@ -68,7 +65,7 @@ int ft_printf(const char *string, ...)
 		if (string[i] == '%')
 		{
 
-			ft_print_check(string[++i], &list, &sum, &i);
+			ft_print_check(string[++i], &list, &sum);
 			printf("|if(i):%d| \n", i);
 			i++;
 		}
@@ -83,7 +80,7 @@ int ft_printf(const char *string, ...)
 	va_end(list);
 	return (sum);
 }
-
+/*
 int main()
 {
 	int b = -123;
@@ -99,4 +96,4 @@ int main()
 
 	printf("\n\n\np>%p,u>%lx", &c, (uintptr_t)&c);
 	ft_printf("\nft_p>%p", &c);
-}
+}*/
