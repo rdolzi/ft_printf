@@ -6,7 +6,7 @@
 /*   By: rdolzi <rdolzi@student.42roma.it>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:11:16 by rdolzi            #+#    #+#             */
-/*   Updated: 2023/02/06 19:12:24 by rdolzi           ###   ########.fr       */
+/*   Updated: 2023/02/06 20:15:15 by rdolzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 
 int		ft_printf(const char *string, ...);
-int		ft_strlen(char *s);
 void	ft_printchar(char c, int *sum);
 void	ft_printstr(char *str, int *sum);
 void	ft_printnbr(int nbr, int *sum);
