@@ -7,4 +7,4 @@ Requirements: [subject.pdf](./subject.pdf)
 
 # My ft_prinft results 
 
-<img width="1914" alt="libft" src="./images/ft_printf.png">
+<img width="1914" alt="ft_printft" src="./images/ft_printf.png">
